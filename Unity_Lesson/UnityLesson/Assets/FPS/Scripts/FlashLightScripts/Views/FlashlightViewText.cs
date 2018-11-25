@@ -17,7 +17,9 @@ namespace FPS
             _fleshLightModel = FindObjectOfType<FleshLightModel>();
         }
 
-        private void FixedUpdate()
+        //Нет смысла делать обновление UI элементов в FixedUpdate. 
+        //Т.к. FixedUpdate может быть вызван и 2 раза за кадр, обновление произойдет 2 раза, при этом отобразиться на экране только 1 кадр.
+        private void Update()
         {
             _text.text = _fleshLightModel._energy.ToString();
         }
